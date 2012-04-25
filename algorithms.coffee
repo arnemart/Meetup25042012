@@ -7,7 +7,7 @@ randInt = (min, max) ->
 # Shuffle an array using Fisher-Yates
 shuffle = (list) ->
     for i in [0...list.length - 1]
-        rand = randInt(i, list.length - 1)
+        rand = randInt i, list.length - 1
         [list[i], list[rand]] = [list[rand], list[i]]
     list
 
@@ -46,5 +46,5 @@ l shuffled = shuffle [0..20]
 # Sort the numbers with trollsort
 trollsort shuffled, l
 
-# Sort the numbers with quicksort
-quicksortCPS (shuffle [0..20]), l
+# Sort some numbers with quicksort
+quicksortCPS shuffle([0..20]), l

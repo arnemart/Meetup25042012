@@ -37,8 +37,8 @@ makeCPS = (func) ->
     (args..., callback) ->
         callback func args...
 
-# Make an async version of quicksort
-quicksortAsync = makeCPS quicksort
+# Make an CPS version of quicksort
+quicksortCPS = makeCPS quicksort
 
 # Shuffle some numbers
 l shuffled = shuffle [0..20]
@@ -46,3 +46,5 @@ l shuffled = shuffle [0..20]
 # Sort the numbers with trollsort
 trollsort shuffled, l
 
+# Sort the numbers with quicksort
+quicksortCPS (shuffle [0..20]), l

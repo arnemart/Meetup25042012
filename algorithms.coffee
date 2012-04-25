@@ -32,14 +32,17 @@ trollsort = (list, callback) ->
         , num
     ) for num in list
 
-# Take a function that returns some value, make it call a callback instead
-makeAsync = (func) ->
+# Take a function that returns some value, make it call a callback instead (Continuation Passing Style)
+makeCPS = (func) ->
     (args..., callback) ->
         callback func args...
 
 # Make an async version of quicksort
-quicksortAsync = makeAsync quicksort
+quicksortAsync = makeCPS quicksort
 
+# Shuffle some numbers
 l shuffled = shuffle [0..20]
 
+# Sort the numbers with trollsort
 trollsort shuffled, l
+
